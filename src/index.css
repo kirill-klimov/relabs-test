@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .canvas {
+    @apply absolute top-0 left-0 w-full h-full
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded text-black outline-none
+    transition duration-100 focus:ring-4 ring-blue-500/75 
+    invalid:ring-4 invalid:ring-red-500/50 invalid:bg-red-100
+  }
+
+  .button {
+    @apply w-full bg-blue-500 rounded py-2 hover:bg-blue-600/80
+    transition duration-75 active:bg-blue-500 focus:ring-4 ring-blue-500/75
+    font-medium flex justify-center
+  }
+}
