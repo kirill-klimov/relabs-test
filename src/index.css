@@ -2,20 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @keyframes newRow {
+    100% { @apply bg-blue-400/50 }
+    100% { @apply bg-transparent }
+  }
+  .event-row {
+    animation: 1s newRow linear forwards;
+    @apply bg-blue-400/50
+  }
+}
+
 @layer utilities {
   .canvas {
     @apply absolute top-0 left-0 w-full h-full
   }
 
   .input {
-    @apply w-full px-4 py-2 rounded text-black outline-none
-    transition duration-100 focus:ring-4 ring-blue-500/75 
+    @apply w-full px-4 py-2 rounded text-black outline-none border
+    transition duration-100 focus:ring-4 ring-blue-500/50 
     invalid:ring-4 invalid:ring-red-500/50 invalid:bg-red-100
   }
 
   .button {
     @apply w-full bg-blue-500 rounded py-2 hover:bg-blue-600/80
     transition duration-75 active:bg-blue-500 focus:ring-4 ring-blue-500/75
-    font-medium flex justify-center
+    font-medium flex justify-center text-white outline-none
+  }
+
+  .button.red {
+    @apply bg-red-600 ring-red-500/50
+  }
+
+  .button.pink {
+    @apply bg-pink-600 w-fit px-5 rounded-xl hover:bg-pink-500 ring-pink-600/50
+  }
+
+  @keyframes scaleIn {
+    100% { 
+      transform: translateY(0%); 
+      opacity: 1; 
+    }
+  }
+  .error-text {
+    opacity: 0.5;
+    transform: translateY(-15%);
+    animation: .1s scaleIn linear forwards;
+    @apply block text-sm text-red-500 transition-transform duration-100
   }
 }

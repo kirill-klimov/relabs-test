@@ -56,9 +56,9 @@ export default function Auth() {
 
 
   return (
-    <div className="canvas bg-neutral-900 grid place-items-center">
-      <form className={`w-full max-w-xs text-white flex flex-col justify-stretch bg-neutral-700/50 
-      px-6 py-8 rounded-md box-content`}>
+    <div className="canvas bg-neutral-100 grid place-items-center">
+      <form className={`w-full max-w-xs flex flex-col justify-stretch bg-white 
+      px-6 py-8 rounded-md box-content border`}>
         <h2 className="text-center text-xl mb-6 font-medium">Авторизация</h2>
         <label className="mb-4">
           <span className="block mb-2">
@@ -66,7 +66,7 @@ export default function Auth() {
             Электронная почта
           </span>
           <input 
-          autoComplete="off"
+          autoComplete="email"
           disabled={loading}
           name="email"
           value={credentials.email}
@@ -76,7 +76,7 @@ export default function Auth() {
           type="email" />
           {
             !errors.email.length ? <></> :
-            <span className="block mt-2 text-sm text-red-500">{errors.email}</span>
+            <span className="error-text mt-2">{errors.email}</span>
           }
         </label>
         <label className="mb-6">
@@ -85,7 +85,7 @@ export default function Auth() {
             Пароль
           </span>
           <input
-          autoComplete="off"
+          autoComplete="password"
           disabled={loading}
           pattern="^(?=.*[A-Z]).{8,}$"
           name="password"
@@ -96,7 +96,7 @@ export default function Auth() {
           type="password" />
           {
             !errors.password.length ? <></> :
-            <span className="block mt-2 text-sm text-red-500">{errors.password}</span>
+            <span className="error-text mt-2">{errors.password}</span>
           }
         </label>
         <button
